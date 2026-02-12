@@ -13,6 +13,11 @@ namespace FoodApp.Repositories.Implementations
         public void AddOrder(Order order)
         {
             OrderContext.Orders.Add(order);
+            string orders = $"{order.Id}/{order.CustomerId}/{order.DeliveryManId}/{order.Amount}";
+            using (StreamWriter str = new StreamWriter(OrderContext.OrderFile))
+            {
+                str.WriteLine(orders);
+            }
         }
 
         public void DeleteOrder(Order order)
@@ -20,7 +25,7 @@ namespace FoodApp.Repositories.Implementations
             OrderContext.Orders.Remove(order);
         }
 
-        public List <Order> GetOrders()
+        public List<Order> GetOrders()
         {
             return OrderContext.Orders;
         }

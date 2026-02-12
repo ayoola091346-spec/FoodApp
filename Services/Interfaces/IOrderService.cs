@@ -8,7 +8,7 @@ namespace FoodApp.Services.Interfaces
 {
     public interface IOrderService
     {
-        Order? CreateOrder(int id, int custmerId, int deliveryManId, double amount);
+        Order? CreateOrder( int custmerId, int deliveryManId, double amount);
         void DeleteOrder(int id);
         void ViewOrder(int id);
         List<Order> ViewOrders();
