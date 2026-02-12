@@ -12,13 +12,8 @@ namespace FoodApp.Services.Implementations
     public class OrderService : IOrderService
     {
         OrderRepository orderRepository = new OrderRepository();
-        public Order? CreateOrder(int id, int customerId, int deliveryManId, double amount)
+        public Order? CreateOrder( int customerId, int deliveryManId, double amount)
         {
-            bool exists = orderRepository.isExist(id);
-            if(exists == true)
-            {
-                return null;
-            }
             Order order = new Order()
             {
                 Id = OrderContext.Orders.Count + 1,

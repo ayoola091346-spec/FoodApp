@@ -13,6 +13,12 @@ namespace FoodApp.Repositories.Implementations
         public void AddOrderItem(OrderItem orderItem)
         {
             OrderContext.OrderItems.Add(orderItem);
+            string orderItems = $"{orderItem.Id} / {orderItem.OrderId} / {orderItem.FoodId}";
+            using (StreamWriter str = new StreamWriter(OrderContext.OrderItemFile))
+            {
+                str.WriteLine(orderItems);
+            }
+
         }
 
         public void DeleteOrderitem(OrderItem orderItem)
