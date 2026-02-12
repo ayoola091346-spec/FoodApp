@@ -1,4 +1,5 @@
 using FoodApp.FoodAppContext;
+using FoodApp.Models;
 using FoodApp.Repositories.Interfaces;
 
 namespace FoodApp.Repositories.Implementations
@@ -8,6 +9,11 @@ namespace FoodApp.Repositories.Implementations
         public void AddCustomer(Customer customer)
         {
             FoodAppContext.Customers.Add(customer);
+            string customerFile = $"{customer.FullName}/{customer.Email}/{customer.PhoneNumber}/{customer.Address}";
+            using (StreamWriter streamWriter = new StreamWriter(FoodAppContext.CustomerFile, true))
+            {
+                streamWriter.StreamWriter(customerFile);
+            }
         }
         public Customer? GetCustomer(string email)
         {
