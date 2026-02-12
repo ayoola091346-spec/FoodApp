@@ -1,3 +1,4 @@
+using FoodApp.Models;
 using FoodApp.Repositories.Interfaces;
 
 namespace FoodApp.Repositories.Implementations
@@ -7,6 +8,12 @@ namespace FoodApp.Repositories.Implementations
          public void Add(User user)
         {
             FoodAPPContext.Users.Count();
+            string userFile = $"{user.email}/{user.passWord}/{user.Role}";
+            using (StreamWriter streamWriter = new StreamWriter(FoodAppContext.userFile, true))
+            {
+                streamWriter.StreamWriter(userFile);
+            }
+
         }
 
         public User? GetUser(string email)
