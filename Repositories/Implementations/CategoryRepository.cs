@@ -10,7 +10,7 @@ namespace FoodApp.Repositories.Implementations
         public void AddCategory(Category category)
         {
             FoodContext.Categories.Add(category);
-            string CategoryFie = $"{category.Id} {category.Name} {category.Description}";
+            string CategoryFie = $"{category.Id} \t{category.Name} \t {category.Description}";
             using (StreamWriter str = new StreamWriter(FoodContext.CategoryFie))
             {
                 str.WriteLine(CategoryFie);

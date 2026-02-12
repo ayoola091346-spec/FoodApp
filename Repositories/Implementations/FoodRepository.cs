@@ -9,7 +9,7 @@ namespace FoodApp.Repositories.Implementations
         public void AddFood(Food food)
         {
             FoodContext.Foods.Add(food);
-            string FoodFie = $"{food.Id} {food.Name} {food.CategoryId} {food.Price}";
+            string FoodFie = $"{food.Id} \t{food.Name} \t{food.CategoryId} \t{food.Price}";
             using (StreamWriter str = new StreamWriter(FoodContext.FoodFie))
             {
                 str.WriteLine(FoodFie);
