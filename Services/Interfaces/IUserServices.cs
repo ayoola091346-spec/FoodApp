@@ -1,3 +1,5 @@
+using FoodApp.Models;
+
 namespace FoodApp.Services.Interfaces
 {
     public interface IUserServices
