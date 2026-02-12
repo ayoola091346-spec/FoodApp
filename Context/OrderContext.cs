@@ -6,8 +6,10 @@ using FoodApp.Models;
 
 namespace FoodApp.Context
 {
-    public class a
+    public class OrderContext
     {
         
+        public static List<OrderItem> OrderItems = new ();
+        public static List<Order> Orders= new ();
     }
 }
