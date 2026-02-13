@@ -13,7 +13,7 @@ namespace FoodApp.Repositories.Implementations
         public void AddOrderItem(OrderItem orderItem)
         {
             FoodCoApp.OrderItems.Add(orderItem);
-            string orderItems = $"{orderItem.Id} \t{orderItem.OrderId} \t{orderItem.FoodId}";
+            string orderItems = $"{orderItem.Id} / {orderItem.OrderId} / {orderItem.FoodId}";
             using (StreamWriter str = new StreamWriter(FoodCoApp.OrderItemFile))
             {
                 str.WriteLine(orderItems);
