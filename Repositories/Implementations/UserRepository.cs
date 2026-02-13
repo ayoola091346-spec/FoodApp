@@ -1,3 +1,4 @@
+using FoodApp.Context;
 using FoodApp.Models;
 using FoodApp.Repositories.Interfaces;
 
@@ -9,8 +10,8 @@ namespace FoodApp.Repositories.Implementations
         {
             FoodCoApp.Users.Add(user);
 
-            string userFile = $"{user.Id}\t{user.email}\t{user.passWord}\t{user.Role}";
-            using (StreamWriter streamWriter = new StreamWriter(FoodCoApp.userFile, true))
+            string userFile = $"{user.Id}\t{user.Email}\t{user.PassWord}\t{user.Role}";
+            using (StreamWriter streamWriter = new StreamWriter(FoodCoApp.UserFile, true))
             {
                 streamWriter.WriteLine(userFile);
             }
@@ -42,7 +43,7 @@ namespace FoodApp.Repositories.Implementations
 
         public int UsersCount()
         {
-           return FoodAPPContext.Users.Count;
+           return FoodCoApp.Users.Count;
         }
     }
 }

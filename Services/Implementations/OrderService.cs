@@ -16,7 +16,7 @@ namespace FoodApp.Services.Implementations
         {
             Order order = new Order()
             {
-                Id = OrderContext.Orders.Count + 1,
+                Id = FoodCoApp.Orders.Count + 1,
                 CustomerId = customerId,
                 DeliveryManId = deliveryManId,
                 Amount = amount,
@@ -28,7 +28,7 @@ namespace FoodApp.Services.Implementations
         public void DeleteOrder(int id)
         {
             Order order = new Order();
-            foreach(var item in OrderContext.Orders)
+            foreach(var item in FoodCoApp.Orders)
             {
                 if(item.Id == id)
                 {
@@ -45,7 +45,7 @@ namespace FoodApp.Services.Implementations
         public void ViewOrder(int id)
         {
             Order order = new Order();
-            foreach(var item in OrderContext.Orders)
+            foreach(var item in FoodCoApp.Orders)
             {
                 if(item.Id == id)
                 {

@@ -10,7 +10,7 @@ namespace FoodApp.Repositories.Implementations
         {
             FoodCoApp.Foods.Add(food);
             string foodFile = $"{food.Id} \t{food.Name} \t{food.CategoryId} \t{food.Price}";
-            using (StreamWriter str = new StreamWriter(FoodCoApp.FoodFile))
+            using (StreamWriter str = new StreamWriter(FoodCoApp.FoodFie))
             {
                 str.WriteLine(foodFile);
             }

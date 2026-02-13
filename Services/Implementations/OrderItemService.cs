@@ -22,7 +22,7 @@ namespace FoodApp.Services.Implementations
             }
             OrderItem orderItem = new OrderItem
             {
-                Id = OrderContext.OrderItems.Count + 1,
+                Id = FoodCoApp.OrderItems.Count + 1,
                 OrderId = orderId,
                 FoodId = foodId,
             };
@@ -33,7 +33,7 @@ namespace FoodApp.Services.Implementations
         public void DeleteOrderitem(int id)
         {
             OrderItem orderItem = new OrderItem();
-            foreach (var item in OrderContext.OrderItems)
+            foreach (var item in FoodCoApp.OrderItems)
             {
                 if (item.Id == id)
                 {
@@ -50,7 +50,7 @@ namespace FoodApp.Services.Implementations
         public void ViewOrderItem(int id)
         {
             OrderItem orderItem = new OrderItem();
-            foreach (var item in OrderContext.OrderItems)
+            foreach (var item in FoodCoApp.OrderItems)
             {
                 if (item.Id == id)
                 {

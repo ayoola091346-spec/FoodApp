@@ -1,10 +1,12 @@
+using FoodApp.Models;
+using FoodApp.Repositories.Implementations;
 using FoodApp.Services.Interfaces;
 
 namespace FoodApp.Services.Implementations
 {
     public class UserServices: IUserServices
     {
-        IUserRepository userRepository = new UserRepository();
+        UserRepository userRepository = new UserRepository();
         public User? Login(string email, string passWord)
         {
            var user = userRepository.GetUser(email);

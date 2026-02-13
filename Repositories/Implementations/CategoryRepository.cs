@@ -5,13 +5,13 @@ using FoodApp.Repositories.Interfaces;
 
 namespace FoodApp.Repositories.Implementations
 {
-    public class CategoryRepository : ICategoryRepository
+    public class CategoryRepository : ICategoryRepository 
     {
         public void AddCategory(Category category)
         {
             FoodCoApp.Categories.Add(category);
             string categoryFile = $"{category.Id}\t{category.Name}\t{category.Description}";
-            using (StreamWriter str = new StreamWriter(FoodCoApp.CategoryFile))
+            using (StreamWriter str = new StreamWriter(FoodCoApp.CategoryFie))
             {
                 str.WriteLine(categoryFile);
             }
@@ -57,7 +57,6 @@ namespace FoodApp.Repositories.Implementations
             return null;
         }
 
-        
         
     }
 }
