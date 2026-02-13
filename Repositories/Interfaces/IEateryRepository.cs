@@ -4,11 +4,12 @@ namespace FoodApp.Repositories.Interfaces
 {
     public interface IEateryRepository
     {
-         void AddEatery(Eatery eatery);
-         Eatery? GetEatery(int id);
-          List<Eatery> GetEateries();
-          void DeleteEatery(Eatery eatery);
-          int CountEatery();
+        bool IsExist(string name);
+        void AddEatery(Eatery eatery);
+        Eatery? GetEatery(int id);
+        List<Eatery> GetEateries();
+        void DeleteEatery(Eatery eatery);
+        int CountEatery();
          
     }
 }

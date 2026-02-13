@@ -8,28 +8,28 @@ namespace FoodApp.Repositories.Implementations
     {
         public void AddFood(Food food)
         {
-            FoodContext.Foods.Add(food);
-            string FoodFie = $"{food.Id} \t{food.Name} \t{food.CategoryId} \t{food.Price}";
-            using (StreamWriter str = new StreamWriter(FoodContext.FoodFie))
+            FoodCoApp.Foods.Add(food);
+            string foodFile = $"{food.Id} \t{food.Name} \t{food.CategoryId} \t{food.Price}";
+            using (StreamWriter str = new StreamWriter(FoodCoApp.FoodFile))
             {
-                str.WriteLine(FoodFie);
+                str.WriteLine(foodFile);
             }
         }
 
         public void DeleteFood(Food food)
         {
-            FoodContext.Foods.Remove(food);
+            FoodCoApp.Foods.Remove(food);
         }
 
         public int FoodCount()
         {
-            return FoodContext.Foods.Count + 1;
+            return FoodCoApp.Foods.Count + 1;
         }
 
 
         public bool FoodExist(string name)
         {
-            foreach(Food item in FoodContext.Foods)
+            foreach(Food item in FoodCoApp.Foods)
             {
                 if (item.Name == name)
                 {
@@ -42,12 +42,12 @@ namespace FoodApp.Repositories.Implementations
 
         public List<Food> GetAllFood()
         {
-            return FoodContext.Foods;
+            return FoodCoApp.Foods;
         }
 
         public Food? GetCategoryById(int id)
         {
-            foreach(Food item in FoodContext.Foods)
+            foreach(Food item in FoodCoApp.Foods)
             {
                 if (item.Id == id)
                 {

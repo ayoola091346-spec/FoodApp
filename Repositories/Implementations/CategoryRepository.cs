@@ -9,23 +9,23 @@ namespace FoodApp.Repositories.Implementations
     {
         public void AddCategory(Category category)
         {
-            FoodContext.Categories.Add(category);
-            string CategoryFie = $"{category.Id} \t{category.Name} \t {category.Description}";
-            using (StreamWriter str = new StreamWriter(FoodContext.CategoryFie))
+            FoodCoApp.Categories.Add(category);
+            string categoryFile = $"{category.Id}\t{category.Name}\t{category.Description}";
+            using (StreamWriter str = new StreamWriter(FoodCoApp.CategoryFile))
             {
-                str.WriteLine(CategoryFie);
+                str.WriteLine(categoryFile);
             }
         }
 
         public int CategoryCount()
         {
-            return FoodContext.Categories.Count + 1;
+            return FoodCoApp.Categories.Count + 1;
         }
 
 
         public bool CategoryExist(string name)
         {
-            foreach (var item in FoodContext.Categories)
+            foreach (var item in FoodCoApp.Categories)
             {
                 if (item.Name == name)
                 {
@@ -37,17 +37,17 @@ namespace FoodApp.Repositories.Implementations
 
         public void DeleteCategory(Category category)
         {
-            FoodContext.Categories.Remove(category);
+            FoodCoApp.Categories.Remove(category);
         }
 
         public List<Category> GetAllCategory()
         {
-            return FoodContext.Categories;
+            return FoodCoApp.Categories;
         }
 
-        public Category? GetCAtegoryById(int id)
+        public Category? GetCategoryById(int id)
         {
-            foreach (var item in FoodContext.Categories)
+            foreach (var item in FoodCoApp.Categories)
             {
                 if (item.Id == id)
                 {

@@ -9,7 +9,7 @@ namespace FoodApp.Models
     {
         public int Id {get;set;}
         public int CustomerId {get;set;}
-        public int DeliveryManId {get;set;}
+        public int? DeliveryManId {get;set;}
         public double Amount {get;set;}
     }
 }
