@@ -8,11 +8,11 @@ namespace FoodApp.Repositories.Implementations
     {
         public void AddDeliveryMan(DeliveryMan deliveryMan)
         {
-            FoodCoApp.deliveryMen.Add(deliveryMan);
-            string deliveryMan = $"{deliveryMan.Id}\t{deliveryMan.FullName}\t{deliveryMan.UserId}\t{deliveryMan.PhoneNumer}";
+            FoodCoApp.DeliveryMen.Add(deliveryMan);
+            string deliveryManFile = $"{deliveryMan.Id}\t{deliveryMan.FullName}\t{deliveryMan.UserId}\t{deliveryMan.PhoneNumer}";
             using(StreamWriter str = new StreamWriter(FoodCoApp.DeliveryManFile, true))
             {
-                str.WriteLine(deliveryMan);
+                str.WriteLine(deliveryManFile);
             }
 
 
@@ -20,12 +20,12 @@ namespace FoodApp.Repositories.Implementations
 
         public void DeleteEatery(DeliveryMan deliveryMan)
         {
-            FoodCoApp.deliveryMen.Remove(deliveryMan);
+            FoodCoApp.DeliveryMen.Remove(deliveryMan);
         }
 
         public DeliveryMan? GetDeliveryMan(int id)
         {
-            foreach(var item in FoodCoApp.deliveryMen)
+            foreach(var item in FoodCoApp.DeliveryMen)
             {
                 if(item.Id == id)
                 {
@@ -37,11 +37,11 @@ namespace FoodApp.Repositories.Implementations
 
         public List<DeliveryMan> GetDeliveryMen()
         {
-            return FoodCoApp.deliveryMen;
+            return FoodCoApp.DeliveryMen;
         }
         public int CountDeliveryMan()
         {
-            return FoodCoApp.deliveryMen.Count;
+            return FoodCoApp.DeliveryMen.Count;
         }
 
     }

@@ -1,11 +1,15 @@
-using FoodApp.FoodAppContext;
+
+using FoodApp.Context;
+using FoodApp.Models;
+using FoodApp.Repositories.Implementations;
+using FoodApp.Repositories.Interfaces;
 
 namespace FoodApp.Services.Implementations
 {
     public class CustomerServices
     {
-        ICustomerRepository customerRepository = new ICustomerRepository();
-        IUserRepository userRepository = new IUserRepository();
+        CustomerRepository customerRepository = new CustomerRepository();
+        UserRepository userRepository = new UserRepository();
         public Customer? RegisterCustomer(string email, string password,string fullName, string phoneNumber, string address)
         {
             var isExist = userRepository.IsExist(email);
@@ -15,22 +19,22 @@ namespace FoodApp.Services.Implementations
             }
             User user = new User()
             {
-                Id = FoodAppContext.Users.Count + 1,
+                Id = FoodCoApp.Users.Count +1,
                 Email = email,
                 PassWord = password,
                 Role = " app_customer"
             };
-            userRepository.AddUser(user);
+            userRepository.Add(user);
             
             Customer customer = new Customer()
             {
-                Id = FoodAppContext.Customers.Count + 1,
+                Id = FoodCoApp.Customers.Count + 1,
                 FullName = fullName,
                 Email = email,
                 PhoneNumber = phoneNumber,
                 Address = address,
             };
-            customerRepository.AddCustomer(customer);
+            customerRepository.Add(customer);
             return customer;
         }
         public List<Customer> GetCustomers()

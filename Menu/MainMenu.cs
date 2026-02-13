@@ -1,16 +1,13 @@
+using FoodApp.Services.Implementations;
 using FoodApp.Services.Interfaces;
 
 namespace FoodApp.Menu
 {
     public class MainMenu
     {
-        ICategoryServices categoryServices = new ICategoryServices();
-        IUserServicves userServicves = new IUserServicves();
-        ICustomerServices customerServices = new ICustomerServices();
-        IEateryServices eateryServices = new IEateryServices();
-        IFoodService foodService = new IFoodService();
-
-        public string Start()
+        CustomerServices customerServices = new CustomerServices();
+        UserServices userServices = new UserServices();
+        public void Start()
         {
             Console.WriteLine("1. Register \n2. Login\n#.Exsit");
             string opt = Console.ReadLine();
@@ -48,7 +45,7 @@ namespace FoodApp.Menu
             Console.WriteLine("PhoneNumber: ");
             string phoneNumber = Console.ReadLine();
 
-            var response = customerServices.RegisterCustomer(email,passWord,name,phoneNumber,address);
+            var response = customerServices.RegisterCustomer(email,passWord,fullName,phoneNumber,address);
             if(response == null)
             {
                 Console.WriteLine("Registration fail");
@@ -65,7 +62,7 @@ namespace FoodApp.Menu
             Console.WriteLine("Email");
             string email = Console.ReadLine()!;
 
-            var response = userServicves.Login(email, passWord);
+            var response = userServices.Login(passWord, email);
             if (response == null)
             {
                 Console.WriteLine("invalid credential");

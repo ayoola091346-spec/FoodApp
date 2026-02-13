@@ -20,7 +20,7 @@ namespace FoodApp.Services.Implementations
                 Address = address,
                 PhoneNumber = PhoneNumer
           };
-          eateryRepository.AddEatery(eatery);
+          eateryRepository.AddEateries(eatery);
           return eatery;
         }
 

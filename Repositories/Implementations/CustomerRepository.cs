@@ -1,4 +1,5 @@
-using FoodApp.FoodAppContext;
+
+using FoodApp.Context;
 using FoodApp.Models;
 using FoodApp.Repositories.Interfaces;
 
@@ -6,7 +7,7 @@ namespace FoodApp.Repositories.Implementations
 {
     public class CustomerRepository: ICustomerRepository
     {
-        public void AddCustomer(Customer customer)
+        public void Add(Customer customer)
         {
             FoodCoApp.Customers.Add(customer);
             string customerFile = $"{customer.FullName}\t{customer.Email}\t{customer.PhoneNumber}\t{customer.Address}";

@@ -7,13 +7,13 @@ namespace FoodApp.Repositories.Implementations
 {
     public class EateryRpository : IEateryRepository
     {
-        public void AddEatery(Eatery eatery)
+        public void AddEateries(Eatery eatery)
         {
            FoodCoApp.Eateries.Add(eatery);
-           string eatery = $"{eatery.Id}\t{eatery.Name}\t{eatery.Email}\t{eatery.PhoneNumber}";
+           string eateriesFile = $"{eatery.Id}\t{eatery.Name}\t{eatery.Email}\t{eatery.PhoneNumber}";
            using(StreamWriter str = new StreamWriter(FoodCoApp.EateryFile, true))
             {
-                str.WriteLine(eatery);
+                str.WriteLine(eateriesFile);
             }
         }
 
@@ -40,7 +40,7 @@ namespace FoodApp.Repositories.Implementations
         }
         public int CountEatery()
         {
-            return FoodCoApp.deliveryMen.Count;
+            return FoodCoApp.DeliveryMen.Count;
         }
 
     }
