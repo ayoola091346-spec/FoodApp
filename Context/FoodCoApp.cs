@@ -1,3 +1,5 @@
+using FoodApp.Models;
+
 namespace FoodApp.Context
 {
     public class FoodCoApp

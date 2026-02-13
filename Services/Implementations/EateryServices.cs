@@ -10,7 +10,7 @@ namespace FoodApp.Services.Implementations
         IEateryRepository eateryRepository = new EateryRpository();
 
 
-        public Eatery? CreateEatery(int id, string name, string email, string address, string PhoneNumer)
+        public Eatery? CreateEatery( string name, string email, string address, string PhoneNumer)
         {
            Eatery eatery = new Eatery()
           {

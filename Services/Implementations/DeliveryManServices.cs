@@ -8,7 +8,7 @@ namespace FoodApp.Services.Implementations
     public class DeliveryManServices : IDeliveryManServices
     {
        IDeliveryManRepository deliveryManRepository = new DeliveryManRpository();
-        public DeliveryMan RegisterDeliveryman(int id, int userId, string fullName, string PhoneNumer)
+        public DeliveryMan RegisterDeliveryman( int userId, string fullName, string PhoneNumer)
         {
             DeliveryMan deliveryMan = new DeliveryMan()
             {

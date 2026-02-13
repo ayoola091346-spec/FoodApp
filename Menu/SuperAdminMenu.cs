@@ -83,7 +83,7 @@ namespace FoodApp.Menu
         {
            
             Console.WriteLine("enter your Id");
-            string userId  = Console.ReadLine(); 
+            int userId  = int.Parse(Console.ReadLine()); 
              Console.Write("enter your compny name  :  ");
             string fullname  = Console.ReadLine(); 
             Console.Write("enter your  phoneNum  :  ");
