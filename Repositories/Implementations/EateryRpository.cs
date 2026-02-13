@@ -9,27 +9,27 @@ namespace FoodApp.Repositories.Implementations
     {
         public void AddEatery(Eatery eatery)
         {
-           EateryContext.Eateries.Add(eatery);
-           string stringEatery = $"{eatery.Id}\t{eatery.Name}\t{eatery.Email}\t{eatery.PhoneNumber}";
-           using(StreamWriter str = new StreamWriter(EateryContext.EateryFile, true))
+           FoodCoApp.Eateries.Add(eatery);
+           string eatery = $"{eatery.Id}\t{eatery.Name}\t{eatery.Email}\t{eatery.PhoneNumber}";
+           using(StreamWriter str = new StreamWriter(FoodCoApp.EateryFile, true))
             {
-                str.WriteLine(stringEatery);
+                str.WriteLine(eatery);
             }
         }
 
         public void DeleteEatery(Eatery eatery)
         {
-          EateryContext.Eateries.Remove(eatery);
+          FoodCoApp.Eateries.Remove(eatery);
         }
 
         public List<Eatery> GetEateries()
         {
-            return EateryContext.Eateries;
+            return FoodCoApp.Eateries;
         }
 
         public Eatery? GetEatery(int id)
         {
-           foreach(var item in EateryContext.Eateries)
+           foreach(var item in FoodCoApp.Eateries)
             {
                 if(item.Id == id)
                 {
@@ -40,7 +40,7 @@ namespace FoodApp.Repositories.Implementations
         }
         public int CountEatery()
         {
-            return EateryContext.deliveryMen.Count;
+            return FoodCoApp.deliveryMen.Count;
         }
 
     }

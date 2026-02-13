@@ -12,6 +12,6 @@ namespace FoodApp.Models
         public string  Email {get;set;} = default!;
         public string  Address {get;set;} = default!;
         public string  PhoneNumber {get;set;} = default!;
-
+        public decimal Wallet{get; set;}
     }
 }

@@ -5,20 +5,20 @@ namespace FoodApp.Repositories.Implementations
 {
     public class UserRepository: IUserRepository
     {
-         public void Add(User user)
+        public void Add(User user)
         {
-            FoodAPPContext.Users.Count();
-            string userFile = $"{user.email}/{user.passWord}/{user.Role}";
-            using (StreamWriter streamWriter = new StreamWriter(FoodAppContext.userFile, true))
-            {
-                streamWriter.StreamWriter(userFile);
-            }
+            FoodCoApp.Users.Add(user);
 
+            string userFile = $"{user.Id}\t{user.email}\t{user.passWord}\t{user.Role}";
+            using (StreamWriter streamWriter = new StreamWriter(FoodCoApp.userFile, true))
+            {
+                streamWriter.WriteLine(userFile);
+            }
         }
 
         public User? GetUser(string email)
         {
-             foreach (var item in FoodAPPContext.Users)
+             foreach (var item in FoodCoApp.Users)
             {
                 if(item.Email == email)
                 {
@@ -30,7 +30,7 @@ namespace FoodApp.Repositories.Implementations
 
         public bool IsExist(string email)
         {
-            foreach(var item in FoodAPPContext.Users) 
+            foreach(var item in FoodCoApp.Users) 
             {
                 if(item.Email == email)
                 {

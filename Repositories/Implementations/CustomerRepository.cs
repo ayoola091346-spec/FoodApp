@@ -8,16 +8,16 @@ namespace FoodApp.Repositories.Implementations
     {
         public void AddCustomer(Customer customer)
         {
-            FoodAppContext.Customers.Add(customer);
-            string customerFile = $"{customer.FullName}/{customer.Email}/{customer.PhoneNumber}/{customer.Address}";
-            using (StreamWriter streamWriter = new StreamWriter(FoodAppContext.CustomerFile, true))
+            FoodCoApp.Customers.Add(customer);
+            string customerFile = $"{customer.FullName}\t{customer.Email}\t{customer.PhoneNumber}\t{customer.Address}";
+            using (StreamWriter streamWriter = new StreamWriter(FoodCoApp.CustomerFile, true))
             {
-                streamWriter.StreamWriter(customerFile);
+                streamWriter.WriteLine(customerFile);
             }
         }
         public Customer? GetCustomer(string email)
         {
-            foreach (Customer item in FoodAppContext.Customers)
+            foreach (Customer item in FoodCoApp.Customers)
             {
                 if(item.Email == email)
                 {
@@ -28,11 +28,11 @@ namespace FoodApp.Repositories.Implementations
         }
         public List<Customer> GetCustomers()
         {
-            return FoodAppContext.Customers;
+            return FoodCoApp.Customers;
         }
         public Customer? GetCustomers(string email)
         {
-            foreach (Customer item in FoodAppContext.Customers)
+            foreach (Customer item in FoodCoApp.Customers)
             {
                 if(item.Email == email)
                 {
@@ -43,7 +43,7 @@ namespace FoodApp.Repositories.Implementations
         }
         public void Delete(Customer customer)
         {
-           FoodAppContext.Customers.Remove(customer);
+           FoodCoApp.Customers.Remove(customer);
         }
     
     }

@@ -12,9 +12,9 @@ namespace FoodApp.Repositories.Implementations
     {
         public void AddOrderItem(OrderItem orderItem)
         {
-            OrderContext.OrderItems.Add(orderItem);
-            string orderItems = $"{orderItem.Id} / {orderItem.OrderId} / {orderItem.FoodId}";
-            using (StreamWriter str = new StreamWriter(OrderContext.OrderItemFile))
+            FoodCoApp.OrderItems.Add(orderItem);
+            string orderItems = $"{orderItem.Id} \t{orderItem.OrderId} \t{orderItem.FoodId}";
+            using (StreamWriter str = new StreamWriter(FoodCoApp.OrderItemFile))
             {
                 str.WriteLine(orderItems);
             }
@@ -23,7 +23,7 @@ namespace FoodApp.Repositories.Implementations
 
         public void DeleteOrderitem(OrderItem orderItem)
         {
-            OrderContext.OrderItems.Remove(orderItem);
+            FoodCoApp.OrderItems.Remove(orderItem);
         }
 
         public OrderItem? GetOrderItem(OrderItem orderItem)
@@ -33,12 +33,12 @@ namespace FoodApp.Repositories.Implementations
 
         public List<OrderItem> GetOrderItems()
         {
-            return OrderContext.OrderItems;
+            return FoodCoApp.OrderItems;
         }
 
         public bool isExist(int id)
         {
-            foreach (var item in OrderContext.OrderItems)
+            foreach (var item in FoodCoApp.OrderItems)
             {
                 if (item.Id == id)
                 {
